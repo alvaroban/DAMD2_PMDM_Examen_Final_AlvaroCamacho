@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">DAMD2_PMDM_Examen_Final_AlvaroCamacho</string>
+    <string name="joyeria_menu">Joyería</string>
+    <string name="electronica_menu">Electrónica</string>
+    <string name="hombre_menu">Hombre</string>
+    <string name="mujer_menu">Mujer</string>
+    <string name="main_menu_title">Main</string>
+</resources>
