@@ -42,7 +42,39 @@ class ProductViewModel(private val repository: ProductRepository): ViewModel() {
     fun loadJewelleryProducts(page: Int){
         viewModelScope.launch(Dispatchers.IO) {
             try {
-                val products = repository.getElectronicsProducts()
+                val products = repository.getJewelleryProducts()
+
+                if (products != null) {
+                    jewelleryProductsMutable.postValue(products)
+                } else {
+                    Log.e("ProductsViewModel","No se ha recibido respuesta del servidor")
+                }
+            } catch (e: Exception) {
+                Log.e("ProductsViewModel", "Error al obtener productos", e)
+            }
+        }
+    }
+
+    fun loadMenProducts(page: Int){
+        viewModelScope.launch(Dispatchers.IO) {
+            try {
+                val products = repository.getMenProducts()
+
+                if (products != null) {
+                    jewelleryProductsMutable.postValue(products)
+                } else {
+                    Log.e("ProductsViewModel","No se ha recibido respuesta del servidor")
+                }
+            } catch (e: Exception) {
+                Log.e("ProductsViewModel", "Error al obtener productos", e)
+            }
+        }
+    }
+
+    fun loadWomenProducts(page: Int){
+        viewModelScope.launch(Dispatchers.IO) {
+            try {
+                val products = repository.getWomenProducts()
 
                 if (products != null) {
                     jewelleryProductsMutable.postValue(products)

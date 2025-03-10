@@ -10,4 +10,25 @@ class ProductRepository(private val apiService: ProductService) {
             response.body()?.results
         } else null
     }
+
+    suspend fun getJewelleryProducts():List<Product>? {
+        val response = apiService.getJewelery()
+        return if (response.isSuccessful) {
+            response.body()?.results
+        } else null
+    }
+
+    suspend fun getMenProducts():List<Product>? {
+        val response = apiService.getMen()
+        return if (response.isSuccessful) {
+            response.body()?.results
+        } else null
+    }
+
+    suspend fun getWomenProducts():List<Product>? {
+        val response = apiService.getWomen()
+        return if (response.isSuccessful) {
+            response.body()?.results
+        } else null
+    }
 }
